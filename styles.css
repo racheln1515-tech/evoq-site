@@ -232,3 +232,6 @@ transform: translate(-50%, -50%); animation: glow 5s ease-in-out 1.8s infinite b
 @media (prefers-reduced-motion: reduce) {
 *, *::before { animation: none !important; transition: none !important; }
 }
+@media (max-width: 760px) {
+.hero-mark::before { left: 70px; width: 200px; }
+}
