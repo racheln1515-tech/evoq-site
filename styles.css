@@ -189,7 +189,7 @@ background: var(--ivory); border-bottom: 1px solid var(--line);
 .brand img { height: 46px; }
 .hero { padding: 64px 0 80px; }
 .hero-inner { grid-template-columns: 1fr; }
-.hero-mark { display: none; }
+.hero-mark { order: -1; justify-content: flex-start; margin-bottom: -16px; } .hero-mark img { width: 140px; }
 .section { padding: 80px 0; }
 .services { grid-template-columns: 1fr; }
 .service, .service:nth-child(even), .service:not(:nth-child(3n+1)) { padding: 36px 0; border-left: none; }
