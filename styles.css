@@ -260,7 +260,7 @@ position: relative;
 .logo-marquee::before { left: 0; background: linear-gradient(90deg, var(--ivory), transparent); }
 .logo-marquee::after { right: 0; background: linear-gradient(270deg, var(--ivory), transparent); }
 .client-logo:not(:hover) img[src^="byte"] { filter: brightness(.55); }
-.logo-track { display: flex; align-items: center; gap: 96px; width: max-content; padding-right: 96px; animation: scroll 36s linear infinite; }
+.logo-track { display: flex; align-items: center; gap: 96px; width: max-content; padding-right: 96px; background: var(--ivory); animation: scroll 36s linear infinite; }
 .logo-marquee:hover .logo-track { animation-play-state: paused; }
 /* Logos share one muted look until hovered; multiply hides white logo backgrounds */
 .client-logo { display: block; flex: none; filter: grayscale(1); opacity: .65; mix-blend-mode: multiply; transition: filter .4s, opacity .4s; }
