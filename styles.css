@@ -378,26 +378,62 @@ filter: invert(1); mix-blend-mode: screen; opacity: .08; pointer-events: none;
 .contact-form { padding: 36px 24px; }
 }
 /* Services: alternating light and dark boxes */
-.services { border-top: none; }
+.services { border-top: none; perspective: 1200px; }
 .service, .service:nth-child(even), .service:not(:nth-child(3n+1)) {
-padding: 48px 40px; border: none;
+position: relative; overflow: hidden; isolation: isolate;
+padding: 48px 40px; border: none; background: var(--svc-bg);
 --svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe);
-background: var(--svc-bg);
+--svc-alt-bg: var(--ink); --svc-alt-title: var(--ivory); --svc-alt-text: #cfc6bb; --svc-alt-num: var(--stone);
 }
 .service h3 { color: var(--svc-title); }
 .service p { color: var(--svc-text); }
 .service .num { color: var(--svc-num); }
 /* Three columns: every other box is dark, forming a checkerboard */
-.service:nth-child(even) { --svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone); }
+.service:nth-child(even) {
+--svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone);
+--svc-alt-bg: var(--ivory); --svc-alt-title: var(--ink); --svc-alt-text: var(--muted); --svc-alt-num: var(--taupe);
+}
 @media (max-width: 960px) {
 .service, .service:nth-child(even), .service:not(:nth-child(3n+1)) { padding: 40px 32px; }
 /* Two columns: dark boxes are 2, 3, 6 so the checkerboard holds */
-.service:nth-child(even) { --svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe); }
-.service:nth-child(4n+2), .service:nth-child(4n+3) { --svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone); }
+.service:nth-child(even) {
+--svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe);
+--svc-alt-bg: var(--ink); --svc-alt-title: var(--ivory); --svc-alt-text: #cfc6bb; --svc-alt-num: var(--stone);
+}
+.service:nth-child(4n+2), .service:nth-child(4n+3) {
+--svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone);
+--svc-alt-bg: var(--ivory); --svc-alt-title: var(--ink); --svc-alt-text: var(--muted); --svc-alt-num: var(--taupe);
+}
 }
 @media (max-width: 760px) {
 .service, .service:nth-child(even), .service:not(:nth-child(3n+1)) { padding: 36px 26px; }
 /* One column: simply alternate */
-.service:nth-child(4n+2), .service:nth-child(4n+3) { --svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe); }
-.service:nth-child(even) { --svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone); }
+.service:nth-child(4n+2), .service:nth-child(4n+3) {
+--svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe);
+--svc-alt-bg: var(--ink); --svc-alt-title: var(--ivory); --svc-alt-text: #cfc6bb; --svc-alt-num: var(--stone);
 }
+.service:nth-child(even) {
+--svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone);
+--svc-alt-bg: var(--ivory); --svc-alt-title: var(--ink); --svc-alt-text: var(--muted); --svc-alt-num: var(--taupe);
+}
+}
+/* Hover: the opposite colour floods in from the corner and the text flips to match */
+.service::before {
+content: ""; position: absolute; inset: 0; z-index: -1;
+background: var(--svc-alt-bg);
+clip-path: circle(0% at 100% 0%);
+transition: clip-path .7s cubic-bezier(.6, 0, .2, 1);
+}
+.service:hover::before { clip-path: circle(150% at 100% 0%); }
+.service h3, .service p { transition: color .45s ease .1s; }
+.service .num { display: inline-block; transition: color .45s ease .1s, transform .45s ease; }
+.service:hover h3 { color: var(--svc-alt-title); }
+.service:hover p { color: var(--svc-alt-text); }
+.service:hover .num { color: var(--svc-alt-num); transform: translateX(8px) scale(1.2); }
+/* Entrance: boxes flip into place like cards (only when animations.js runs) */
+.anim .service.reveal {
+opacity: 0; transform: rotateY(-75deg); transform-origin: left center;
+transition: transform 1s cubic-bezier(.2, .8, .2, 1), opacity .6s ease;
+}
+.anim .service.reveal:nth-child(even) { transform: rotateX(75deg); transform-origin: center top; }
+.anim .service.reveal.in { opacity: 1; transform: none; }
