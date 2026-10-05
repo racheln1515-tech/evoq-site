@@ -442,3 +442,4 @@ transition: transform 1s cubic-bezier(.2, .8, .2, 1), opacity .6s ease;
 .anim .service.reveal, .anim .service.reveal:nth-child(even) { transform: translateY(32px); transform-origin: center; }
 .anim .service.reveal.in { transform: none; }
 }
+.contact-areas { font-size: .9rem; color: var(--muted); margin: -16px 0 32px; max-width: 46ch; }
