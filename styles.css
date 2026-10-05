@@ -236,7 +236,7 @@ transform: translate(-50%, -50%); animation: glow 5s ease-in-out 1.8s infinite b
 .hero-mark::before { left: 70px; width: 200px; }
 }
 /* Clients */
-.clients { text-align: center; padding-bottom: 0; }
+.clients { text-align: center; padding-top: 24px; padding-bottom: 0; }
 .clients .section-head h2 { max-width: 22ch; margin: 0 auto; }
 .creators { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px 40px; margin-bottom: 88px; }
 .creator { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 220px; }
