@@ -292,7 +292,7 @@ transition: filter .4s, opacity .4s;
 .partner:hover img { filter: none; opacity: 1; }
 /* PB Fit's file includes extra artwork, so only the logo area is shown */
 .partner-crop { position: relative; display: block; height: 100%; aspect-ratio: 912 / 768; overflow: hidden; }
-.partner-crop img { position: absolute; width: 421.05%; height: auto; left: -163.16%; top: -62.5%; object-fit: fill; }
+.partner-crop img { position: absolute; width: 421.05%; max-width: none; height: auto; left: -163.16%; top: -62.5%; object-fit: fill; }
 .partners-cta { text-align: center; }
 .partners-cta h2 { max-width: 20ch; margin: 0 auto 24px; }
 .partners-cta p:not(.eyebrow) { max-width: 56ch; margin: 0 auto 40px; color: #cfc6bb; font-size: 1.1rem; }
