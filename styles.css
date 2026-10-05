@@ -437,3 +437,8 @@ transition: transform 1s cubic-bezier(.2, .8, .2, 1), opacity .6s ease;
 }
 .anim .service.reveal:nth-child(even) { transform: rotateX(75deg); transform-origin: center top; }
 .anim .service.reveal.in { opacity: 1; transform: none; }
+/* Phones and tablets: a simple slide-up instead of the 3D flip, which some mobile browsers can fail to draw */
+@media (max-width: 960px) {
+.anim .service.reveal, .anim .service.reveal:nth-child(even) { transform: translateY(32px); transform-origin: center; }
+.anim .service.reveal.in { transform: none; }
+}
