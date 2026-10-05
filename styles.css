@@ -377,3 +377,27 @@ filter: invert(1); mix-blend-mode: screen; opacity: .08; pointer-events: none;
 @media (max-width: 760px) {
 .contact-form { padding: 36px 24px; }
 }
+/* Services: alternating light and dark boxes */
+.services { border-top: none; }
+.service, .service:nth-child(even), .service:not(:nth-child(3n+1)) {
+padding: 48px 40px; border: none;
+--svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe);
+background: var(--svc-bg);
+}
+.service h3 { color: var(--svc-title); }
+.service p { color: var(--svc-text); }
+.service .num { color: var(--svc-num); }
+/* Three columns: every other box is dark, forming a checkerboard */
+.service:nth-child(even) { --svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone); }
+@media (max-width: 960px) {
+.service, .service:nth-child(even), .service:not(:nth-child(3n+1)) { padding: 40px 32px; }
+/* Two columns: dark boxes are 2, 3, 6 so the checkerboard holds */
+.service:nth-child(even) { --svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe); }
+.service:nth-child(4n+2), .service:nth-child(4n+3) { --svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone); }
+}
+@media (max-width: 760px) {
+.service, .service:nth-child(even), .service:not(:nth-child(3n+1)) { padding: 36px 26px; }
+/* One column: simply alternate */
+.service:nth-child(4n+2), .service:nth-child(4n+3) { --svc-bg: var(--ivory); --svc-title: var(--ink); --svc-text: var(--muted); --svc-num: var(--taupe); }
+.service:nth-child(even) { --svc-bg: var(--ink); --svc-title: var(--ivory); --svc-text: #cfc6bb; --svc-num: var(--stone); }
+}
