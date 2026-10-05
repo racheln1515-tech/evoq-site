@@ -347,3 +347,33 @@ animation-delay: calc(var(--i) * 70ms), calc(var(--i) * 300ms + 1.2s);
 .partners-teaser .partners { gap: 8px; }
 .partners-teaser .partner { padding: 6px 8px; }
 }
+/* Instagram links */
+.contact-social { margin-top: 18px; }
+.contact-social a { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); transition: color .3s; }
+.contact-social a:hover { color: var(--ink); }
+.footer-social { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--stone); border-radius: 50%; color: var(--ink); transition: background .3s, color .3s; }
+.footer-social:hover { background: var(--ink); color: var(--ivory); }
+
+/* Contact form: dark card with light details */
+.contact-form {
+position: relative; overflow: hidden;
+background: var(--ink); color: var(--ivory); border: none; padding: 52px 48px;
+box-shadow: 0 30px 60px rgba(38, 38, 38, .18);
+}
+/* Faint star mark tucked into the corner */
+.contact-form::after {
+content: ""; position: absolute; right: -50px; bottom: -50px; width: 240px; height: 240px;
+background: url("logo-mark.png") center / contain no-repeat;
+filter: invert(1); mix-blend-mode: screen; opacity: .08; pointer-events: none;
+}
+.contact-form label { position: relative; z-index: 1; color: #b9afa3; }
+.contact-form input, .contact-form select, .contact-form textarea { color: var(--ivory); border-bottom-color: rgba(247, 243, 238, .25); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-bottom-color: var(--ivory); }
+.contact-form select option { color: var(--ink); }
+.contact-form .btn { position: relative; z-index: 1; background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+.contact-form .btn:hover { background: transparent; color: var(--ivory); }
+.contact-form h3 { color: var(--ivory); font-size: 2rem; margin-bottom: 12px; }
+.contact-form p { color: #cfc6bb; }
+@media (max-width: 760px) {
+.contact-form { padding: 36px 24px; }
+}
