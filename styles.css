@@ -304,3 +304,14 @@ transition: filter .4s, opacity .4s;
 .partners { gap: 12px; }
 .partner { width: calc(50% - 6px); padding: 20px 22px; }
 }
+/* Homepage partnerships preview */
+.partners-teaser { text-align: center; border-top: 1px solid var(--line); }
+.partners-teaser .section-head h2 { max-width: 22ch; margin: 0 auto; }
+.partners-teaser .partners { margin-bottom: 48px; }
+.partners-teaser .partner { width: calc(16.666% - 17px); padding: 20px 22px; }
+@media (max-width: 960px) {
+.partners-teaser .partner { width: calc(33.333% - 14px); }
+}
+@media (max-width: 760px) {
+.partners-teaser .partner { width: calc(50% - 6px); }
+}
