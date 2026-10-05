@@ -238,8 +238,8 @@ transform: translate(-50%, -50%); animation: glow 5s ease-in-out 1.8s infinite b
 /* Clients */
 .clients { text-align: center; padding-bottom: 0; }
 .clients .section-head h2 { max-width: 22ch; margin: 0 auto; }
-.creators { display: flex; justify-content: center; flex-wrap: wrap; gap: 64px; margin-bottom: 88px; }
-.creator { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.creators { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px 40px; margin-bottom: 88px; }
+.creator { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 220px; }
 .avatar {
 position: relative; display: block; width: 132px; height: 132px; margin-bottom: 18px;
 border-radius: 50%; overflow: hidden;
@@ -270,6 +270,6 @@ position: relative;
 .client-logo.crop img { position: absolute; height: auto; }
 
 @media (max-width: 760px) {
-.creators { gap: 44px; margin-bottom: 56px; }
+.creators { gap: 40px 16px; margin-bottom: 56px; } .creator { width: calc(50% - 8px); } .creator h3 { font-size: 1.35rem; } .creator .handle { font-size: .64rem; letter-spacing: .12em; overflow-wrap: anywhere; }
 .logo-track { gap: 64px; padding-right: 64px; }
 }
