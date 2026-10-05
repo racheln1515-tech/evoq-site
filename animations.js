@@ -2,7 +2,7 @@
 (function () {
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
 document.documentElement.classList.add('anim');
-const targets = document.querySelectorAll('.section-head, .intro .container, .service, .business-intro, .business-list li, .steps li, .about > div, .founder > div, .contact-inner > *');
+const targets = document.querySelectorAll('.section-head, .intro .container, .service, .business-intro, .business-list li, .steps li, .about > div, .founder > div, .contact-inner > *, .partners-teaser .partners');
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
 if (!entry.isIntersecting) return;
