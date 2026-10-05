@@ -306,10 +306,13 @@ transition: filter .4s, opacity .4s;
 }
 /* Homepage partnerships preview */
 .partners-teaser { text-align: center; border-top: 1px solid var(--line); padding: 64px 0; }
-.partners-teaser .section-head { margin-bottom: 28px; }
+.partners-teaser .section-head { margin-bottom: 32px; }
 .partners-teaser .section-head h2 { max-width: 22ch; margin: 0 auto; font-size: clamp(1.8rem, 3.2vw, 2.4rem); }
-.partners-teaser .partners { gap: 10px; max-width: 720px; margin: 0 auto 28px; }
-.partners-teaser .partner { width: 110px; aspect-ratio: 2 / 1; padding: 8px 12px; }
+.partners-teaser .partners { gap: 14px; max-width: 1110px; margin: 0 auto 32px; }
+.partners-teaser .partner { width: 172px; aspect-ratio: 2 / 1; padding: 10px 14px; }
+@media (max-width: 1180px) {
+.partners-teaser .partner { width: calc(16.666% - 12px); padding: 8px 10px; }
+}
 @media (max-width: 760px) {
 .partners-teaser { padding: 48px 0; }
 .partners-teaser .partners { gap: 8px; }
