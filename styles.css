@@ -253,9 +253,13 @@ transition: transform .4s ease;
 .creator .followers { font-size: .95rem; color: var(--muted); }
 .logo-marquee {
 overflow: hidden; padding: 44px 0; border-top: 1px solid var(--line); background: var(--ivory);
--webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+position: relative;
 }
+/* Faded edges (a CSS mask here would stop the logos blending into the page) */
+.logo-marquee::before, .logo-marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12%; z-index: 1; pointer-events: none; }
+.logo-marquee::before { left: 0; background: linear-gradient(90deg, var(--ivory), transparent); }
+.logo-marquee::after { right: 0; background: linear-gradient(270deg, var(--ivory), transparent); }
+.client-logo:not(:hover) img[src^="byte"] { filter: brightness(.55); }
 .logo-track { display: flex; align-items: center; gap: 96px; width: max-content; padding-right: 96px; animation: scroll 36s linear infinite; }
 .logo-marquee:hover .logo-track { animation-play-state: paused; }
 /* Logos share one muted look until hovered; multiply hides white logo backgrounds */
