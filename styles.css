@@ -235,3 +235,37 @@ transform: translate(-50%, -50%); animation: glow 5s ease-in-out 1.8s infinite b
 @media (max-width: 760px) {
 .hero-mark::before { left: 70px; width: 200px; }
 }
+/* Clients */
+.clients { text-align: center; padding-bottom: 0; }
+.clients .section-head h2 { max-width: 22ch; margin: 0 auto; }
+.creators { display: flex; justify-content: center; flex-wrap: wrap; gap: 64px; margin-bottom: 88px; }
+.creator { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.avatar {
+position: relative; display: block; width: 132px; height: 132px; margin-bottom: 18px;
+border-radius: 50%; overflow: hidden;
+box-shadow: 0 0 0 6px var(--ivory), 0 0 0 7px var(--stone);
+transition: transform .4s ease;
+}
+.avatar img { position: absolute; max-width: none; }
+.creator:hover .avatar { transform: scale(1.05); }
+.creator h3 { font-size: 1.6rem; }
+.creator .handle { font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe); }
+.creator .followers { font-size: .95rem; color: var(--muted); }
+.logo-marquee {
+overflow: hidden; padding: 44px 0; border-top: 1px solid var(--line); background: var(--ivory);
+-webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.logo-track { display: flex; align-items: center; gap: 96px; width: max-content; padding-right: 96px; animation: scroll 36s linear infinite; }
+.logo-marquee:hover .logo-track { animation-play-state: paused; }
+/* Logos share one muted look until hovered; multiply hides white logo backgrounds */
+.client-logo { display: block; flex: none; filter: grayscale(1); opacity: .65; mix-blend-mode: multiply; transition: filter .4s, opacity .4s; }
+.client-logo:hover { filter: none; opacity: 1; }
+.client-logo img { display: block; height: 100%; width: auto; max-width: none; }
+.client-logo.crop { position: relative; overflow: hidden; }
+.client-logo.crop img { position: absolute; height: auto; }
+
+@media (max-width: 760px) {
+.creators { gap: 44px; margin-bottom: 56px; }
+.logo-track { gap: 64px; padding-right: 64px; }
+}
